@@ -1,20 +1,14 @@
 {
-  "name": "asztalos-template",
+  "name": "borsod-asztalos",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "build": "echo 'Static site - no build needed'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "build:html": "cp ./src/index.html ./dist/index.html",
+    "build:images": "cp -r ./images ./dist/images",
+    "build": "mkdir -p ./dist && npm run build:css && npm run build:html && npm run build:images",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ValcsevDaniel/asztalos.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ValcsevDaniel/asztalos/issues"
-  },
-  "homepage": "https://github.com/ValcsevDaniel/asztalos#readme",
-  "description": ""
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
 }
